@@ -55,6 +55,7 @@ public class RNMatomoSdkModule extends ReactContextBaseJavaModule {
                 .build(Matomo.getInstance(this.reactContext));
         Tracker.Callback callback = RNMatomoSdkModule.this::onTrackCallback;
         tracker.addTrackingCallback(callback);
+        tracker.setDispatchInterval(10 * 1000);
       }
 
       promise.resolve(null);
